@@ -25,7 +25,7 @@ const ProductListing = () => {
   }, [dispatch]);
   return (
     <div>
-      <Product></Product>
+      <Product />
     </div>
   );
 };

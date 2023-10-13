@@ -1,7 +1,8 @@
 import { ActionTypes } from "../actions"
 
 const intialState = {
-    products: []
+    products: [],
+    cartItems: []
 }
 
 export const allProducts = (state = intialState, action) => {
@@ -9,8 +10,7 @@ export const allProducts = (state = intialState, action) => {
         case ActionTypes.SET_PRODUCTS:
             return { ...state, products: action.payload };
         case ActionTypes.SELECTED_PRODUCT:
-            return state;
-
+            return { ...state, cartItems: [...state.cartItems, action.payload] };
         default:
             return state;
     }

@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Cart from './components/Cart';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
+import ProductListing from './components/ProductListing';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/products' element={<ProductListing />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

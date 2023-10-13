@@ -1,8 +1,8 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import { productReducer } from "./product.reducer";
+import { allProducts } from "./product.reducer";
 
 export const MainReducer = combineReducers({
-    productReducer
+    allProducts
 })
 
 const rootReducer = (state, action) => {

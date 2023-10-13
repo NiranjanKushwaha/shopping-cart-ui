@@ -9,7 +9,29 @@ export const setProducts = (products) => {
 
 export const addToCartProduct = (product) => {
     return {
-        type: ActionTypes.SELECTED_PRODUCT,
+        type: ActionTypes.ADD_TO_CART,
+        payload: product
+    }
+}
+
+export const increaseBuyQuantity = (product) => {
+    return {
+        type: ActionTypes.INCREASE_BUY_ITEM,
+        payload: product
+    }
+}
+
+
+export const decreaseBuyQuantity = (product) => {
+    return {
+        type: ActionTypes.DECREASE_BUY_ITEM,
+        payload: product
+    }
+}
+
+export const deleteCartItem = (product) => {
+    return {
+        type: ActionTypes.DELETE_CART_ITEM,
         payload: product
     }
 }

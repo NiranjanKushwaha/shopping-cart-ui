@@ -1,22 +1,26 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCartProduct } from "../redux/action-creators/productAction";
+import { useGlobalToast } from "../contextApi/ToastProvider";
 
 const Product = () => {
   const products = useSelector((state) => state.allProducts.products);
   const cartItems = useSelector((state) => state.allProducts.cartItems);
   const dispatch = useDispatch();
+  const { showSuccessToast, showWarningToast } = useGlobalToast();
+
   const addToCart = (product) => {
     if (
       cartItems &&
       cartItems.length &&
       cartItems.some((cartItem) => cartItem.id === product.id)
     ) {
-      alert("Item already added in the cart");
+      showWarningToast("Item already added in the cart");
       return;
     }
     product["quantity"] = 1;
     dispatch(addToCartProduct(product));
+    showSuccessToast("Item added to cart successfully");
   };
 
   if (products && products.length) {

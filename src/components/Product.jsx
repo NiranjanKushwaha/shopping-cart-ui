@@ -2,11 +2,13 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCartProduct } from "../redux/action-creators/productAction";
 import { useGlobalToast } from "../contextApi/ToastProvider";
+import { useNavigate } from "react-router-dom";
 
 const Product = () => {
   const products = useSelector((state) => state.allProducts.products);
   const cartItems = useSelector((state) => state.allProducts.cartItems);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { showSuccessToast, showWarningToast } = useGlobalToast();
 
   const addToCart = (product) => {
@@ -21,6 +23,11 @@ const Product = () => {
     product["quantity"] = 1;
     dispatch(addToCartProduct(product));
     showSuccessToast("Item added to cart successfully");
+  };
+
+  const viewProduct = (product) => {
+    console.log(product);
+    navigate(`/viewProduct/${product.id}`);
   };
 
   if (products && products.length) {
@@ -64,6 +71,12 @@ const Product = () => {
                       </button>
                     </div>
                   </div>
+                </div>
+                <div
+                  className="bg-info view-product btn"
+                  onClick={() => viewProduct(product)}
+                >
+                  view
                 </div>
               </div>
             </React.Fragment>

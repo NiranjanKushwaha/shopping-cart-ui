@@ -1,3 +1,4 @@
+import { restApiService } from "../../services/rest.service";
 import { ActionTypes } from "../actions";
 
 export const setProducts = (products) => {
@@ -42,4 +43,27 @@ export const deleteAllCartItems = () => {
         type: ActionTypes.EMPTY_CART,
         payload: [],
     }
+}
+
+
+export const fetchProductByProductId = (productId) => {
+    return async (dispatch) => {
+        try {
+            const response = await restApiService.get(`http://localhost:8000/products/${productId}`);
+            if (response && response.data && response.data.length) {
+                dispatch({
+                    type: ActionTypes.FETCH_PRODUCT_SUCCESS,
+                    payload: response.data,
+                });
+            }
+            else {
+                dispatch({
+                    type: ActionTypes.FETCH_PRODUCT_FAILED,
+                    payload: [],
+                });
+            }
+
+        } catch (error) {
+        }
+    };
 }

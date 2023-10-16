@@ -5,6 +5,7 @@ import Cart from './components/Cart';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
 import ToastProvider from './contextApi/ToastProvider';
+import ViewProduct from './components/ViewProduct';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/cart' element={<Cart />} />
+            <Route path='/viewProduct/:id' element={<ViewProduct />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>

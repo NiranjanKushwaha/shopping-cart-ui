@@ -2,7 +2,8 @@ import { ActionTypes } from "../actions"
 
 const intialState = {
     products: [],
-    cartItems: []
+    cartItems: [],
+    currentViewItem: []
 }
 
 export const allProducts = (state = intialState, action) => {
@@ -39,6 +40,12 @@ export const allProducts = (state = intialState, action) => {
 
         case ActionTypes.EMPTY_CART:
             return { ...state, cartItems: [] };
+
+        case ActionTypes.FETCH_PRODUCT_SUCCESS:
+            return { ...state, currentViewItem: action.payload };
+
+        case ActionTypes.FETCH_PRODUCT_FAILED:
+            return { ...state, currentViewItem: [] }
         default:
             return state;
     }

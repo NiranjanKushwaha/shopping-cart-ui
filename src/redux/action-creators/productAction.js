@@ -35,3 +35,11 @@ export const deleteCartItem = (product) => {
         payload: product
     }
 }
+
+
+export const deleteAllCartItems = () => {
+    return {
+        type: ActionTypes.EMPTY_CART,
+        payload: [],
+    }
+}

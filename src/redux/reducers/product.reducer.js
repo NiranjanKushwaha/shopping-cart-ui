@@ -36,6 +36,9 @@ export const allProducts = (state = intialState, action) => {
 
         case ActionTypes.DELETE_CART_ITEM:
             return { ...state, cartItems: state.cartItems.filter(item => item.id !== action.payload.id) };
+
+        case ActionTypes.EMPTY_CART:
+            return { ...state, cartItems: [] };
         default:
             return state;
     }

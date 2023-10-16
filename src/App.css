@@ -109,8 +109,8 @@
 
 .cart-action-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;
+  align-items: center; */
   height: 2.3rem;
   margin-right: 2rem;
 }
@@ -126,4 +126,16 @@
   color: rgb(93, 48, 217);
   height: 2.3rem;
   text-align: center;
+}
+
+.cart .sub-total {
+  text-align: right;
+  margin-right: 10px;
+  display: block;
+}
+
+.delete-all-cart-items {
+  display: flex;
+  justify-content: end;
+  margin: 10px;
 }
